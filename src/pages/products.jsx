@@ -1,5 +1,5 @@
 import { Fragment, useState } from "react";
-import CardProduct from "../component/Fragment/CardPropduct";
+import CardProduct from "../component/Fragment/CardProduct";
 import Button from "../component/Element/Button";
 
 const products = [
