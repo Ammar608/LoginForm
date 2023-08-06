@@ -6,7 +6,12 @@ import SampleProduct from "../utils/SampleProduct";
 const email = localStorage.getItem("email");
 
 const ProductsPage = () => {
-  const { cart, setCart } = useState([]);
+  const { cart, setCart } = useState([
+    {
+      nama: "Sepatu Lama",
+      qty: 1,
+    },
+  ]);
   const handleLogout = () => {
     localStorage.removeItem("email");
     localStorage.removeItem("password");
@@ -26,24 +31,22 @@ const ProductsPage = () => {
       </div>
       <div className="flex justify-center py-5">
         <div className="w-3/4 flex flex-wrap">
-          {SampleProduct
-            ? SampleProduct.map((product) => {
-                <CardProduct key={product.id}>
-                  <CardProduct.Header image={product.image} />
-                  <CardProduct.Body name={product.name}>
-                    {product.description}
-                  </CardProduct.Body>
-                  <CardProduct.Footer price={product.price} />
-                </CardProduct>;
-              })
-            : null}
+          {SampleProduct.map((product) => (
+            <CardProduct key={product.id}>
+              <CardProduct.Header image={product.image} />
+              <CardProduct.Body name={product.name}>
+                {product.description}
+              </CardProduct.Body>
+              <CardProduct.Footer price={product.price} />
+            </CardProduct>
+          ))}
         </div>
         <div className="w-1/4">
           <h1 className="text-3xl font-bold text-blue-600">Card</h1>
           <ul>
-            {cart
-              ? cart.map((item) => <li key={item.name}>{item.name}</li>)
-              : null}
+            {cart.map((barang) => (
+              <li key={barang.nama}>{barang.nama}</li>
+            ))}
           </ul>
         </div>
       </div>
