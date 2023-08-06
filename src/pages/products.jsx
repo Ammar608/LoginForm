@@ -1,30 +1,7 @@
 import { Fragment, useState } from "react";
 import CardProduct from "../component/Fragment/CardProduct";
 import Button from "../component/Element/Button";
-
-const products = [
-  {
-    id: 1,
-    name: "Vans",
-    price: 1000000,
-    image: "/images/shoes.jpg",
-    description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat quaerat distinctio veritatis temporibus mollitia, beatae tempore eum labore repellat natus.`,
-  },
-  {
-    id: 2,
-    name: "Nike",
-    price: 2000000,
-    image: "/images/shoes.jpg",
-    description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat quaerat distinctio veritatis repellat natus.`,
-  },
-  {
-    id: 3,
-    name: "Adidas",
-    price: 1500000,
-    image: "/images/shoes.jpg",
-    description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat quaerat distinctio veritatis repellat natus.`,
-  },
-];
+import SampleProduct from "../utils/SampleProduct";
 
 const email = localStorage.getItem("email");
 
@@ -49,7 +26,7 @@ const ProductsPage = () => {
       </div>
       <div className="flex justify-center py-5">
         <div className="w-3/4 flex flex-wrap">
-          {products.map((product) => {
+          {SampleProduct.map((product) => {
             return (
               <CardProduct key={product.id}>
                 <CardProduct.Header image={product.image} />
@@ -64,9 +41,9 @@ const ProductsPage = () => {
         <div className="w-1/4">
           <h1 className="text-3xl font-bold text-blue-600">Card</h1>
           <ul>
-            {cart.map((item) => {
+            {/* {cart.map((item) => {
               <li key={item.name}>{item.name}</li>;
-            })}
+            })} */}
           </ul>
         </div>
       </div>
