@@ -26,24 +26,24 @@ const ProductsPage = () => {
       </div>
       <div className="flex justify-center py-5">
         <div className="w-3/4 flex flex-wrap">
-          {SampleProduct.map((product) => {
-            return (
-              <CardProduct key={product.id}>
-                <CardProduct.Header image={product.image} />
-                <CardProduct.Body name={product.name}>
-                  {product.description}
-                </CardProduct.Body>
-                <CardProduct.Footer price={product.price} />
-              </CardProduct>
-            );
-          })}
+          {SampleProduct
+            ? SampleProduct.map((product) => {
+                <CardProduct key={product.id}>
+                  <CardProduct.Header image={product.image} />
+                  <CardProduct.Body name={product.name}>
+                    {product.description}
+                  </CardProduct.Body>
+                  <CardProduct.Footer price={product.price} />
+                </CardProduct>;
+              })
+            : null}
         </div>
         <div className="w-1/4">
           <h1 className="text-3xl font-bold text-blue-600">Card</h1>
           <ul>
-            {/* {cart.map((item) => {
-              <li key={item.name}>{item.name}</li>;
-            })} */}
+            {cart
+              ? cart.map((item) => <li key={item.name}>{item.name}</li>)
+              : null}
           </ul>
         </div>
       </div>
