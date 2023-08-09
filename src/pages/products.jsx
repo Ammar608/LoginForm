@@ -6,16 +6,16 @@ import SampleProduct from "../utils/SampleProduct";
 const email = localStorage.getItem("email");
 
 const ProductsPage = () => {
-  const { cart, setCart } = useState([
-    {
-      nama: "Sepatu Lama",
-      qty: 1,
-    },
-  ]);
-  const handleLogout = () => {
+  const { cart, setCart } = useState("ammar");
+
+  function handleLogout() {
     localStorage.removeItem("email");
     localStorage.removeItem("password");
     window.location.href = "/login";
+  }
+
+  const handleAddToCart = () => {
+    setCart;
   };
 
   return (
@@ -44,8 +44,9 @@ const ProductsPage = () => {
         <div className="w-1/4">
           <h1 className="text-3xl font-bold text-blue-600">Card</h1>
           <ul>
-            {cart.map((barang) => (
-              <li key={barang.nama}>{barang.nama}</li>
+            <li>{cart}</li>
+            {cart?.map((item) => (
+              <li key={item.name}>{item.name}</li>
             ))}
           </ul>
         </div>
